@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vatko/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0B1F3A" />
+    <title>ВатКо — Виж къде отиват парите ти за ток</title>
+    <meta name="description" content="ВатКо измерва консумацията на ток в реално време и ти казва как да спестиш. Безконтактна клема + мобилно приложение. 59 €." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="bg_BG" />
+    <meta property="og:title" content="ВатКо — Виж къде отиват парите ти за ток" />
+    <meta property="og:description" content="Умен енергиен монитор за дома. Измерва консумацията в реално време и прогнозира сметката ти." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap&subset=cyrillic" rel="stylesheet" />
+    <script>
+      // Прилага темата преди рендериране, за да няма "примигване"
+      try {
+        var t = localStorage.getItem('vatko-theme');
+        if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --color-navy-950: #061224;
+  --color-navy-900: #0B1F3A;
+  --color-navy-800: #12294B;
+  --color-navy-700: #1B3A63;
+  --color-volt-300: #86EFAC;
+  --color-volt-400: #4ADE80;
+  --color-volt-500: #22C55E;
+  --color-volt-600: #16A34A;
+  --color-volt-700: #15803D;
+  --color-sun-400: #FACC15;
+  --color-sun-500: #EAB308;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body {
+    @apply bg-white text-navy-900 antialiased dark:bg-navy-950 dark:text-slate-100;
+    font-feature-settings: 'locl' 0; /* стандартни (не българските курсивни) форми на кирилицата */
+  }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-volt-500 rounded-md; }
+  ::selection { @apply bg-volt-500/30; }
+}
+
+@utility container-x { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+
+@utility card {
+    @apply rounded-3xl border border-slate-200/80 bg-white shadow-[0_1px_2px_rgba(11,31,58,0.04),0_8px_24px_-12px_rgba(11,31,58,0.12)]
+           dark:border-white/10 dark:bg-navy-900 dark:shadow-none;
+  }
+
+@utility btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-semibold transition
+           active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+@utility btn-primary { @apply btn bg-volt-500 text-navy-900 hover:bg-volt-400 shadow-lg shadow-volt-500/25; }
+
+@utility btn-secondary {
+    @apply btn border border-slate-300 bg-white/60 text-navy-900 backdrop-blur hover:bg-white
+           dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10;
+  }
+
+@utility eyebrow { @apply text-xs font-bold uppercase tracking-[0.18em] text-volt-700 dark:text-volt-400; }
+
+@utility h2 { @apply text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-balance; }
+
+@utility lead { @apply text-lg text-slate-600 dark:text-slate-300 text-pretty; }
+
+@utility input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-navy-900 placeholder:text-slate-400
+           transition focus:border-volt-500 focus:outline-none focus:ring-4 focus:ring-volt-500/20
+           dark:border-white/15 dark:bg-navy-800 dark:text-white;
+  }
+
+@utility label { @apply mb-1.5 block text-sm font-semibold; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
