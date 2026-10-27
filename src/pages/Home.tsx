@@ -1,15 +1,18 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, CalendarX2, Clock, HelpCircle, MessageSquareQuote, Plug, Smartphone, Wifi } from 'lucide-react'
+import { lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
-import { LiveScreen } from '../components/AppScreens'
+import { LiveScreen } from '../components/LiveScreen'
 import { EmailCta } from '../components/EmailCta'
-import { LiveDemo } from '../components/LiveDemo'
 import { PhoneFrame } from '../components/PhoneFrame'
 import { Pricing } from '../components/Pricing'
 import { Reveal } from '../components/Reveal'
 import { SavingsCalculator } from '../components/SavingsCalculator'
 import { SectionHeading } from '../components/SectionHeading'
 import { useSeo } from '../lib/seo'
+
+// Recharts тежи ~150 KB – зарежда се чак когато демото е нужно
+const LiveDemo = lazy(() => import('../components/LiveDemo').then((m) => ({ default: m.LiveDemo })))
 
 const problems = [
   { icon: CalendarX2, title: 'Сметката идва веднъж месечно – твърде късно', text: 'Разбираш колко си похарчил, когато вече нищо не може да се промени.' },
@@ -47,10 +50,7 @@ export default function Home() {
               <span className="size-1.5 rounded-full bg-volt-500" aria-hidden />
               Предварителни поръчки – първа серия
             </motion.p>
-            <motion.h1
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            <h1
               className="mt-6 text-5xl leading-[1.05] font-extrabold tracking-tight text-balance sm:text-6xl lg:text-7xl"
             >
               Виж къде отиват парите ти за{' '}
@@ -60,15 +60,8 @@ export default function Home() {
                   <path d="M2 8 Q 30 2 60 6 T 118 4" fill="none" stroke="#FACC15" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>
-            </motion.h1>
-            <motion.p
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.7 }}
-              className="lead mt-6 max-w-xl sm:text-xl"
-            >
-              ВатКо измерва консумацията в реално време и ти казва как да спестиш.
-            </motion.p>
+            </h1>
+            <p className="lead mt-6 max-w-xl sm:text-xl">ВатКо измерва консумацията в реално време и ти казва как да спестиш.</p>
             <motion.div
               initial={reduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -167,7 +160,9 @@ export default function Home() {
             lead="Включи уред и виж как реагира графиката – точно както в приложението на ВатКо."
           />
           <Reveal>
-            <LiveDemo />
+            <Suspense fallback={<div className="card h-[34rem]" />}>
+              <LiveDemo />
+            </Suspense>
           </Reveal>
         </div>
       </section>

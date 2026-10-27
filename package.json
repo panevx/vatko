@@ -11,6 +11,7 @@
     "deploy": "npm run build && touch dist/.nojekyll && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
+    "@fontsource-variable/manrope": "^5.3.0",
     "framer-motion": "^14.7.1",
     "lucide-react": "^1.62.0",
     "react": "^19.3.1",
