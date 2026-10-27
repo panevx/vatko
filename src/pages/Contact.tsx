@@ -152,7 +152,7 @@ export default function Contact() {
                         <label
                           key={t.value}
                           className={`cursor-pointer rounded-lg py-2 text-center text-sm font-bold transition has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-volt-500 ${
-                            form.type === t.value ? 'bg-white shadow-sm dark:bg-navy-700' : 'text-slate-500 dark:text-slate-400'
+                            form.type === t.value ? 'bg-white shadow-sm dark:bg-navy-700' : 'text-slate-600 dark:text-slate-400'
                           }`}
                         >
                           <input type="radio" name="type" value={t.value} className="sr-only" checked={form.type === t.value} onChange={() => set('type', t.value)} />

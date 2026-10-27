@@ -56,7 +56,7 @@ export function Pricing() {
             <p className={`mt-1 text-sm ${p.featured ? 'text-slate-300' : 'text-slate-600 dark:text-slate-400'}`}>{p.desc}</p>
             <p className="mt-6 flex items-baseline gap-1">
               <span className="text-4xl font-extrabold tracking-tight">{p.price}</span>
-              {p.period && <span className={`text-sm ${p.featured ? 'text-slate-300' : 'text-slate-500 dark:text-slate-400'}`}>{p.period}</span>}
+              {p.period && <span className={`text-sm ${p.featured ? 'text-slate-300' : 'text-slate-600 dark:text-slate-400'}`}>{p.period}</span>}
             </p>
             <ul className="mt-6 flex-1 space-y-3 text-sm">
               {p.features.map((f) => (

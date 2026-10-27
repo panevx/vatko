@@ -58,7 +58,7 @@ export default function AppPage() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="text-6xl font-extrabold text-slate-200 dark:text-white/10" aria-hidden>
+              <p className="text-6xl font-extrabold text-volt-600 dark:text-volt-400" aria-hidden>
                 0{i + 1}
               </p>
               <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h2>

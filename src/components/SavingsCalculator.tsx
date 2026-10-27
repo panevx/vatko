@@ -78,7 +78,7 @@ export function SavingsCalculator() {
               <label
                 key={String(v)}
                 className={`cursor-pointer rounded-xl py-2.5 text-center text-sm font-bold transition has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-volt-500 ${
-                  nightTariff === v ? 'bg-white shadow-sm dark:bg-navy-700' : 'text-slate-500 dark:text-slate-400'
+                  nightTariff === v ? 'bg-white shadow-sm dark:bg-navy-700' : 'text-slate-600 dark:text-slate-400'
                 }`}
               >
                 <input type="radio" name="night" className="sr-only" checked={nightTariff === v} onChange={() => setNightTariff(v as boolean)} />
