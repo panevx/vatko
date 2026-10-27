@@ -16,7 +16,7 @@ export default function Blog() {
 
   return (
     <>
-      <PageHeader eyebrow="Блог" title="Съвети за по-ниска сметка" lead="Кратки и практични статии за това как работи токът у дома и как да плащаш по-малко за него." />
+      <PageHeader eyebrow="Блог" title={<>Съвети за <span className="whitespace-nowrap">по-ниска</span> сметка</>} lead="Кратки и практични статии за това как работи токът у дома и как да плащаш по-малко за него." />
 
       <section className="container-x py-20 sm:py-24">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
